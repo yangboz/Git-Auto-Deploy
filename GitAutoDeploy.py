@@ -31,7 +31,8 @@ class GitAutoDeploy(BaseHTTPRequestHandler):
 			for repository in myClass.config['repositories']:
 				if(not os.path.isdir(repository['path'])):
 					print "Directory %s not found" % repository['path']
-					call(['git clone '+repository['url']+' '+repository['path']], shell=True)
+					branch =  ('branch' in repository) and repository['branch'] or 'master'
+					call(['git clone -b '+branch+' '+repository['url']+' '+repository['path']], shell=True)
 					if(not os.path.isdir(repository['path'])):
 						print "Unable to clone repository %s" % repository['url']
 						sys.exit(2)
