@@ -1,5 +1,6 @@
 FROM ubuntu:15.04
 MAINTAINER Chivorotkiv <chivorotkiv@omich.net>
+LABEL Version="0.0.1" License="MIT"
 
 RUN apt-get update && \
     apt-get -y -q upgrade && \
