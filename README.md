@@ -43,3 +43,15 @@ move there and run "git pull".
 Additionally it runs a deploy bash command that you can add to the config file optionally, and it also
 allows you to add two global deploy commands, one that would run at the beginning and one that would run at the end of the deploy.
 Make sure that you start the server as the user that is allowed to pull from the github or gitlab repository.
+
+
+# Docker Container
+This repository is a source for automated build [repository on docker-gub](https://registry.hub.docker.com/u/qnch/github-gitlab-auto-deploy/)
+
+* Create new Dockerfile 
+* Use following FROM instruction: `FROM qnch/github-gitlab-auto-deploy`.
+* Add GitAutoDeploy.conf to context (in root of context)
+* Setup all necessary build tools like gcc or npm
+* Most probably you will need to setup ssh-keys
+
+[Example of using this container](https://github.com/quizzz-and-chiv/dev-infrastructure/tree/master/gitdeploy-npm)
