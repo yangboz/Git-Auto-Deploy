@@ -1,6 +1,6 @@
 FROM ubuntu:15.04
 MAINTAINER Chivorotkiv <chivorotkiv@omich.net>
-LABEL Version="0.0.1" License="MIT"
+LABEL Version="0.0.2" License="MIT"
 
 RUN apt-get update && \
     apt-get -y -q upgrade && \
@@ -16,6 +16,7 @@ RUN useradd gitdeploy --uid 2111 -d /home/gitdeploy && \
 ADD GitAutoDeploy.py /opt/git-auto-deploy/
 ADD lock.sh /opt/git-auto-deploy/
 ADD unlock.sh /opt/git-auto-deploy/
+ADD clear_lock.sh /opt/git-auto-deploy/
 
 ONBUILD ADD GitAutoDeploy.conf.json /opt/git-auto-deploy/
 ONBUILD USER gitdeploy
